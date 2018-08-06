@@ -9,6 +9,11 @@ h4{
 	padding:1vw;
 }
 
+img{
+	height:20vw;
+	width:20vw;
+}
+
 .jumbotron{
 	background-color:#FFFFFF !important;
 	line-height:2em;
@@ -17,8 +22,8 @@ h4{
 #chessboard{
 	margin:auto;
 	background:#521;
-	height:45vw;
-	width:45vw;
+	height:35vw;
+	width:35vw;
 	display:inline-block;
 	position:relative;
 }
@@ -95,3 +100,6 @@ svg{
 	color:White;
 }
 
+p .name{
+	color:#0A0 !important;
+}

@@ -10,18 +10,27 @@
 		<main role="main" class="inner ">
 			<div class="container w-100 h-100 pt-3 mx-auto flex-column">
 				<div class = "jumbotron pb-0">
-					<h1 class="pb-0 m-1">Knights Tour Simulator</h1>
+					<h1 class="pb-0 m-1">The Knights Tour and The Warnsdorf Heuristic</h1>
 					By Jaime Nufio
 					<h2 class="p-3 mt-5">What is the Knights Tour?</h2>
-					<p class="pl-5 pr-5">A <span class="name">Knight's Tour</span> is a path across a chessboard made of only legal moves a knight can take in the game of chess such that it visits every tile on the board exactly once. It is an example of a Hamiltonian Cycle. Read more about them <a href="#">here.</a></p>
+					<img class="pb-4" src="tour.png">
+					<p class="pl-5 pr-5">A <span class="name">Knight's Tour</span> is a path that visits every tile of a chessboard, exactly once, composed of only legal moves a Knight can make. There are two types of Knights Tour: an open tour, one that starts an ends on different, and closed tours, those start and end on the same tile. They are examples of Hamiltonian path, and Hamiltonian cycle, respectively. Read more about them <a href="https://en.wikipedia.org/wiki/Hamiltonian_path">here.</a></p>
 					<h2 class="p-3 mt-5">How does a Knight Move?</h2>
-					<img class="pb-4" src="legalmoves.jpg"><
-					<p class="pl-5 pr-5">A knight has exactly 8 legal moves, shaped like an 'L', from its starting position. In Chess, a Knight may pass-over, or "jump" other pieces, but that isn't important for now. Read more about them <a href="#">here.</a></p>
+					<img class="pb-4" src="legalmoves.jpg">
+					<p class="pl-5 pr-5">A knight has exactly 8 legal moves, shaped like an 'L', from its starting position. In Chess, a Knight may pass-over, or "jump" other pieces, but that isn't important for now. Read more about them <a href="https://en.wikipedia.org/wiki/Knight_(chess)">here.</a></p>
+					<h2 class="pb-4 mt-5">Warnsdorf Heuristic</h2>
+					<img class="pb-4" src="warns.png">
+					<p class="pt-0 pb-0 mb-0">The Warnsdorf Heuristics is a problem solving technique for any graph. In mathmatical terms, each move is made by looking at adjacent vectors with the least degree. In other words, the general idea is to move based on how many possible moves exist in the next stage, favoring the next move with the least possible future moves. Because of this, a recursive implementation was ideal. Read more about the Heuristic <a href="https://en.wikipedia.org/wiki/Knight%27s_tour#Warnsdorf's_rule">here.</a> </p>
 					<h2 class="pb-4 mt-5">Try it yourself!</h2>
-					<p class="pt-0 pb-0 mb-0">Click anywhere on the board to spawn a <span class="name">Knight's Tour</span> instance.</p>
+					<p class="pt-0 pb-0 mb-0">Click anywhere on the board to spawn an open <span class="name">Knight's Tour</span> instance.</p>
 				</div>
-					<div  id="chessboard" class="simpleBorder ">
+					<div  id="chessboard" class="simpleBorder mb-4">
 						<div id='draw'></div>
+					</div>
+					<div class = "mb-5" style = "text-align:center">
+							<button id = "reset" type = "button" style = "margin: auto" class = " btn btn-primary">Reset Chessboard</button>
+							<button id = "path"  type = "button" style = "margin: auto" class = " btn btn-success">Toggle Path</button>
+							<button id = "knight" type = "button" style = "margin: auto" class = " btn btn-secondary">Toggle Knights & Numbers</button>
 					</div>
 				</div>
 			</div>

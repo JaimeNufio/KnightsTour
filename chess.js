@@ -6,6 +6,7 @@ for (var i =0;i<map.length;i++){
 }
 
 var mapDraw = new Array(64);
+var init = new Array(2);
 
 var disp = [[2,1],[1,2],[-2,1],[1,-2],[-2,-1],[-1,-2],[2,-1],[-1,2]]; 
 var calls = 0,size=map[0].length*map.length;
@@ -36,6 +37,7 @@ for (var i =0;i<64;i++){
 	}
 
 	tile.addEventListener("mousedown", function f(event){
+		console.log("click");
 		if (event.target.classList.contains(".tile") !== null && !started){
 					var tag = event.target;
 					if (tag !== null){
@@ -43,6 +45,7 @@ for (var i =0;i<64;i++){
 					var a = numToXY(parseInt(tag.id))	;
 					console.log(a[0]+", "+a[1]);
 					move(a,0);
+					init[0] = a[0]; init[1] = a[1];
 					started=true;	
 		//		img[0].style = 'inline';	
 		//		started = true;
@@ -55,6 +58,52 @@ for (var i =0;i<64;i++){
 		}
 	});
 }
+
+document.getElementById("draw").addEventListener("mousedown", function f(event){
+		eraseAll();
+		started = false;
+	});
+
+document.getElementById("reset").addEventListener("mousedown", function f(event){
+		eraseAll();
+		started = false;
+	});
+
+var toggleP = false;
+document.getElementById("path").addEventListener("mousedown", function f(event){
+	if (started){
+		if (!toggleP){
+			document.getElementById("draw").style.display = 'none';
+		}else{
+			document.getElementById("draw").style.display = 'block';
+		}
+		toggleP=!toggleP;
+		console.log("toggle");	
+	}
+});
+
+var toggleT = false;
+document.getElementById("knight").addEventListener("mousedown", function f(event){
+	if (started){
+		if (!toggleT){
+			for (var i = 0; i<64; i++){
+				tileChildren = document.getElementById(i).childNodes;
+				for (var j = 0; j<tileChildren.length; j++){
+					tileChildren[j].style.display = "none";
+				}
+			}
+		}else{
+			for (var i = 0; i<64; i++){
+				tileChildren = document.getElementById(i).childNodes;
+				for (var j = 0; j<tileChildren.length; j++){
+					tileChildren[j].style.display = "block";
+				}
+			}
+		}
+		toggleT=!toggleT;
+		console.log("toggle");	
+	}
+});
 
 function numToXY(x){
 	c=0;
@@ -82,8 +131,9 @@ function draw(a,cnt){
 	console.log("id: "+i);
 	var img = tile.querySelectorAll('.image');
 	if (img[0].style !== null){
-		img[0].style.display = 'inline';	
+		img[0].style.display = 'block';	
 		tile.querySelectorAll('.tag')[0].innerHTML = ""+(cnt);
+		tile.querySelectorAll('.tag')[0].style.display= "block";
 	}
 }
 
@@ -232,6 +282,10 @@ function eraseAll(){
 	}
 	count = 1;
 	calls = 0;
+	if (document.getElementById("tour")){
+		document.getElementById("draw").style.setProperty("z-index", "00", "important");//.setAttribute('z-index', '5000 !important');
+		document.getElementById("tour").remove();
+	}
 }
 
 function finale(){
@@ -241,7 +295,8 @@ function finale(){
 	var width = (cBoardDim['width']);
 	var height = (cBoardDim['height']);
 	var drawSVG = SVG('draw');//.size(cBoard['width'],cBoard['height']);
-	//drawSVG.setAttribute('id','tour');
+	var theSVG = cBoard.querySelectorAll("svg")[0];
+	theSVG.id = "tour";
 	//var polyline = drawSVG.polyline([[0,0], [width,0], [0,height]]).fill('none').stroke({ width: 9 });
 
 	var drawArray = new Array(64);
