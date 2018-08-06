@@ -271,8 +271,9 @@ function finale(){
 	}
 	console.log("plotting: "+points);
 	var polyline = drawSVG.polyline(points).fill('none').stroke({ color: '#5B5', width: 4, linecap: 'round', linejoin: 'round'}).animate(2000, '>', 1000).attr({  });
+	console.log(cBoard.scrollTop);
 }
-
+/*
 function getOffset(element)
 {
   var bound = element.getBoundingClientRect();
@@ -282,4 +283,15 @@ function getOffset(element)
     top: bound.top + window.pageYOffset - html.clientTop,
     left: bound.left + window.pageXOffset - html.clientLeft
   };
+}*/
+
+function getOffset( el ) {
+    var _x = 0;
+    var _y = 0;
+    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
+        _x += el.offsetLeft - el.scrollLeft;
+        _y += el.offsetTop - el.scrollTop;
+        el = el.offsetParent;
+    }
+    return { top: _y, left: _x };
 }

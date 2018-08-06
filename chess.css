@@ -9,14 +9,16 @@ h4{
 	padding:1vw;
 }
 
-
+.jumbotron{
+	background-color:#FFFFFF !important;
+	line-height:2em;
+}
 
 #chessboard{
 	margin:auto;
-	margin-top:20px;
 	background:#521;
-	height:40vw;
-	width:40vw;
+	height:45vw;
+	width:45vw;
 	display:inline-block;
 	position:relative;
 }
@@ -43,7 +45,8 @@ svg{
 .simpleBorder{
 	border-color:#952;
 	border-style:solid;
-	border-width:10px;
+	border-width:12px;
+	border-radius:15px;
 }
 
 .tile{
@@ -68,6 +71,7 @@ svg{
 	padding-top:1%;
 	padding-right:5%;
 }
+
 
 @media only screen and (max-width: 1200px) {
     .tag{

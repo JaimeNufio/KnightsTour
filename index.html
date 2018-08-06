@@ -8,11 +8,20 @@
 	<body class = "text-center">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.js"></script>
 		<main role="main" class="inner ">
-			<div class="container-fluid w-100 h-100 pt-3 mx-auto flex-column">
-				<h1 class="p-1 m-1">Knights Tour</h1>
-				<p class="pb-0 mb-0">Click anywhere on the board to spawn a knight, and watch it travel the board.</p>
-					<div  id="chessboard" class="simpleBorder">
-					<div id='draw'></div>
+			<div class="container w-100 h-100 pt-3 mx-auto flex-column">
+				<div class = "jumbotron pb-0">
+					<h1 class="pb-0 m-1">Knights Tour Simulator</h1>
+					By Jaime Nufio
+					<h2 class="p-3 mt-5">What is the Knights Tour?</h2>
+					<p class="pl-5 pr-5">A <span class="name">Knight's Tour</span> is a path across a chessboard made of only legal moves a knight can take in the game of chess such that it visits every tile on the board exactly once. It is an example of a Hamiltonian Cycle. Read more about them <a href="#">here.</a></p>
+					<h2 class="p-3 mt-5">How does a Knight Move?</h2>
+					<img class="pb-4" src="legalmoves.jpg"><
+					<p class="pl-5 pr-5">A knight has exactly 8 legal moves, shaped like an 'L', from its starting position. In Chess, a Knight may pass-over, or "jump" other pieces, but that isn't important for now. Read more about them <a href="#">here.</a></p>
+					<h2 class="pb-4 mt-5">Try it yourself!</h2>
+					<p class="pt-0 pb-0 mb-0">Click anywhere on the board to spawn a <span class="name">Knight's Tour</span> instance.</p>
+				</div>
+					<div  id="chessboard" class="simpleBorder ">
+						<div id='draw'></div>
 					</div>
 				</div>
 			</div>
